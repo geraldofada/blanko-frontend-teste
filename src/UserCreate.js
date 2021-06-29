@@ -52,14 +52,14 @@ const Success = styled.div`
 `;
 
 const UserCreate = () => {
-  const [formError, setFormError] = useState(null);
-  const [formSuccess, setFormSuccess] = useState(null);
+  const [formErrorState, setFormErrorState] = useState(null);
+  const [formSuccessState, setFormSuccessState] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setFormError(null);
-    setFormSuccess(null);
+    setFormErrorState(null);
+    setFormSuccessState(null);
 
     const name = event.target.name.value;
     const email = event.target.email.value;
@@ -74,16 +74,16 @@ const UserCreate = () => {
       );
       event.target.name.value = '';
       event.target.email.value = '';
-      setFormSuccess(`O usuário ${email} foi cadastrado.`)
+      setFormSuccessState(`O usuário ${email} foi cadastrado.`)
 
     } catch (e) {
       if (e.response) {
         const resp = e.response;
 
         if (resp.data.status === 'fail') {
-          setFormError(Object.values(resp.data.data));
+          setFormErrorState(Object.values(resp.data.data));
         } else if (resp.data.status === 'error') {
-          console.error('Um erro interno ocorreu: ', e.response);
+          console.error('Um erro interno ocorreu: ', resp);
         }
 
       } else if (e.request) {
@@ -99,16 +99,16 @@ const UserCreate = () => {
     <Wrapper>
       <h2>Cadastrar Usuário</h2>
 
-      {formError ?
+      {formErrorState ?
         <Errors>
-          {formError.map(err => <li key={err}>{err}</li>)}
+          {formErrorState.map(err => <li key={err}>{err}</li>)}
         </Errors>
         : null
       }
 
-      {formSuccess ?
+      {formSuccessState ?
         <Success>
-          {formSuccess}
+          {formSuccessState}
         </Success>
         : null
       }

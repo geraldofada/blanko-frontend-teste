@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: Roboto, Helvetica, Arial, sans-serif;
     margin: 0px;
   }
+  button {
+    cursor: pointer;
+  }
 `;
 
 const Wrapper = styled.div`
