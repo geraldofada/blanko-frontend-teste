@@ -76,6 +76,8 @@ const UserCreate = () => {
       event.target.email.value = '';
       setFormSuccessState(`O usuário ${email} foi cadastrado.`)
 
+      event.target.name.focus();
+
     } catch (e) {
       if (e.response) {
         const resp = e.response;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Table from './Table';
+import UserList from './UserList';
 
 const Wrapper = styled.div`
   width: 50vw;
@@ -32,7 +32,7 @@ const Home = () => {
                 <button type='button'>Cadastrar usuário</button>
             </Link>
         </Nav>
-        <Table />
+        <UserList />
     </Wrapper>
   );
 
