@@ -6,6 +6,7 @@ import 'normalize.css';
 
 import Home from './Home';
 import UserCreate from './UserCreate';
+import UserEdit from './UserEdit';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -29,7 +30,7 @@ const App = () => {
         <Switch>
           <Route path='/' exact> <Home/> </Route>
           <Route path='/user/create'> <UserCreate/> </Route>
-          <Route path='/user/update'> <UserCreate/> </Route>
+          <Route path='/user/update/:id'> <UserEdit/> </Route>
         </Switch>
       </BrowserRouter>
 

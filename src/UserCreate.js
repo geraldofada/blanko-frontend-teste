@@ -99,7 +99,7 @@ const UserCreate = () => {
 
   return (
     <Wrapper>
-      <h2>Cadastrar Usuário</h2>
+      <h2>Cadastrar usuário</h2>
 
       {formErrorState ?
         <Errors>

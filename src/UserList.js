@@ -56,7 +56,6 @@ const UserList = () => {
 
   const handleDelete = async (email, index) => {
     try {
-      console.log(email);
       await axios.delete(`${process.env.REACT_APP_API}/users`, {
         data: {
           email
@@ -64,9 +63,7 @@ const UserList = () => {
       });
 
       let userlist = [...userListState];
-      console.log(userlist);
       userlist.splice(index, 1);
-      console.log(userlist);
       setUserListState(userlist);
     } catch (e) {
       if (e.response) {
@@ -101,7 +98,7 @@ const UserList = () => {
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>
-                    <Link to="/user/update">
+                    <Link to={`/user/update/${user.id}`}>
                       <Action color='#5bc0de' type='button'>Editar</Action>
                     </Link>
                     <Action
