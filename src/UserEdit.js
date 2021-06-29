@@ -79,7 +79,7 @@ const UserEdit = () => {
       event.target.newEmail.value = '';
       setFormSuccessState(`O usuário foi atualizado.`)
 
-      event.target.name.focus();
+      event.target.newName.focus();
 
     } catch (e) {
       if (e.response) {
