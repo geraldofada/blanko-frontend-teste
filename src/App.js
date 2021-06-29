@@ -1,7 +1,9 @@
-function App() {
+import 'normalize.css';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
         <h1>Teste</h1>
       </header>
     </div>
