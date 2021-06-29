@@ -1,25 +1,36 @@
-import { createGlobalStyle } from 'styled-components';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import 'normalize.css';
 
-import Table from './Table';
+import Home from './Home';
+import UserCreate from './UserCreate';
 
 const GlobalStyle = createGlobalStyle`
   * {
-    font-family: Roboto, Helvetica, Arial, sans-serif
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    margin: 0px;
   }
+`;
+
+const Wrapper = styled.div`
 `;
 
 const App = () => {
   return (
-    <>
+    <Wrapper>
       <GlobalStyle />
-      <header>
-        <h1>Teste</h1>
-      </header>
 
-      <Table />
-    </>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/' exact> <Home/> </Route>
+          <Route path='/user/create'> <UserCreate/> </Route>
+          <Route path='/user/update'> <UserCreate/> </Route>
+        </Switch>
+      </BrowserRouter>
+
+    </Wrapper>
   );
 }
 
